@@ -37,30 +37,28 @@ void loop()
 void readDTH11_Sesnor()
 {
 
-  // Reading temperature or humidity takes about 250 milliseconds!
-  // Sensor readings may also be up to 2 seconds 'old' (its a very slow sensor)
+  // Reading temperature or humidity
   humudity_value = dht.readHumidity();
   // Read temperature as Celsius (the default)
   temprature_value = dht.readTemperature();
 
-  // Check if any reads failed and exit early (to try again).
   if (isnan(humudity_value) || isnan(temprature_value)) {
     Serial.println(("Failed to read from DHT sensor!"));
     return;
   }
 
-  Serial.print((" Humidity: "));
-  Serial.print(humudity_value);
-  Serial.print(("%"));
+  // Serial.print((" Humidity: "));
+  // Serial.print(humudity_value);
+  // Serial.print(("%"));
   lcd.clear();
   lcd.print("Humidity %: ");
   lcd.setCursor(0,2);
   lcd.print(humudity_value);
   Serial.print("\n");
   delay(500); 
-  Serial.print(("Temperature: "));
-  Serial.print(temprature_value);
-  Serial.print(("C "));
+  // Serial.print(("Temperature: "));
+  // Serial.print(temprature_value);
+  // Serial.print(("C "));
   lcd.clear();
   lcd.print("Temperature degCel");
   lcd.setCursor(0,2);
@@ -73,8 +71,8 @@ void moisture_level_detected()
 {
 
   moisture_sensor_value = analogRead(moisture_sensor); 
-  Serial.println("Moisture Level : ");
-  Serial.println(moisture_sensor_value);
+  // Serial.println("Moisture Level : ");
+  // Serial.println(moisture_sensor_value);
   lcd.clear();
   lcd.print("Moisture Level :");
   lcd.setCursor(0,2);
@@ -85,7 +83,11 @@ void moisture_level_detected()
 void water_motor_start()
 {
 
- rain_Sesnor_value = digitalRead(rain_Sesnor); 
+ rain_Sesnor_value = digitalRead(rain_Sesnor);
+ Serial.println("temperature_value=" + String(temperature_value) + 
+               ",humidity_value=" + String(humidity_value) + 
+               ",moisture_sensor_value=" + String(moisture_sensor_value) + 
+               ",rain_sensor_value=" + String(rain_sensor_value));
  delay(500);
  if(rain_Sesnor_value == false)
  {
