@@ -2,7 +2,7 @@
 
 In traditional agriculture, inefficient irrigation practices lead to water wastage and suboptimal crop yields, posing challenges for farmers striving for sustainability. This project aims to address these issues by introducing IoT technology to enhance irrigation practices. By deploying IoT field sensors and automated irrigation systems, farmers can optimize water usage and improve crop yields.
 
-## objective
+## Objective
 
 The primary objective of this project is to introduce IoT into agriculture, focusing on enhancing irrigation practices. By deploying IoT device field sensors, implement automated irrigation systems, farmers can optimize water usage, thus improving crop yields. The potential advancement of the project is integrating IoT-enabled weather monitoring systems, leveraging real-time data collected by IoT sensors and analyzing it with machine learning algorithms, farmers aim to improve irrigation practices, reduce water wastage, enhance crop quality, and achieve sustainable agriculture practices. Additionally, utilizing smart sensors and drone technology enables early detection of pests and diseases, promoting sustainable farming practices and overall crop health.
 
@@ -60,53 +60,185 @@ Download the project from this repository with the following command and go in t
    cd IoT-Based-Smart-Agriculture-to-optimize-water-usage
 ```
 
-## Setup the Arduino on the top of protous  (recommended)
+## Proteus and Arduino Installation on Linux / Windows
 
-Proteus is not available for Linux natively.Although you may be successful in running it through WINE, there is no guarantee that all the features will work, especially since it is a software that requires a lot of libraries to simulate various microcontrollers etc.
+Arduino is already included in the Proteus simulation software. However, Proteus does not natively support Linux. While you may be able to run Proteus through WINE, there is no guarantee that all features will work correctly. Proteus requires numerous libraries to simulate various microcontrollers, which can complicate compatibility with WINE.
 
-The best option to run Windows software which do not have Linux ports is to install a Windows OS, either on a separate partition or as a virtual machine.
+For the best experience running Windows software without Linux ports, consider installing a Windows OS on a separate partition or as a virtual machine.
 
-```The best way is to use virtual machine :
+### Recommended Approach: Using a Virtual Machine
 
-Install a virtual machine like VirtualBox or VMWare on your Ubuntu OS
-Install a windows OS inside it
-Install Proteus on your virtual windows and use it
-```
+1. **Install a virtual machine**:
+   - Use software like VirtualBox or VMWare on your Ubuntu OS.
+2. **Set up a Windows OS**:
+   - Install Windows inside your virtual machine.
+3. **Install Proteus**:
+   - Once Windows is set up, install Proteus within the virtual environment and start using it.
 
-### Installing Node
+This approach ensures better compatibility and functionality for running Proteus on a Linux system.
 
-Node.js is an open source server environment with which we developed the backend and thus the logic for automated irrigation. The backend is the heart of the application and connects the sensor data, user interface, database and hardware (relay to the pump).
+[Download Proteus](https://www.labcenter.com/download/proteus/)
 
-Execute the following commands on the raspi in oder to install Node:
+### After Installing Proteus then Run the Proteus Simulation Design
+
+- Launch Proteus Software
+
+### Running Arduino Code and Loading it into Proteus
+
+To run Arduino code and load it into Proteus for simulation, follow these steps:
+
+#### Step 1: Write and Compile Arduino Code
+
+1. **Open Arduino IDE**:
+
+   - Launch the Arduino IDE on your computer.
+
+2. **Open the Arduino code**:
+
+   - Open your Arduino sketch (Smart_Agriculture_System_Code.ino file) in the Arduino IDE.
+
+3. **Compile the Code**:
+
+   - Click the "Verify" button to compile your code.
+   - Ensure there are no errors in the code. If there are errors, correct them and recompile.
+
+4. **Locate the .hex File**:
+   - Enable verbose output during compilation by going to `File -> Preferences` and checking the "Show verbose output during compilation" box.
+   - Compile the sketch again. The output window will show the path to the generated .hex file. Note this path.
+
+#### Step 2: Load the .hex File into Proteus
+
+1. **Open Proteus**:
+
+   - Launch the Proteus software on your system.
+
+2. **Open a Project**:
+
+   - Open your Proteus project file (Smart_Irrigation_System_Proteus_Simulation.pdsprj) by navigating to `File -> Open` and selecting your design file..
+
+3. **Load the .hex File**:
+
+   - Double-click on the Arduino board component to open its properties.
+   - In the properties window, find the "Program File" section.
+   - Click the folder icon next to the "Program File" field, then browse to and select the .hex file generated by the Arduino IDE.
+
+4. **Configure the Simulation**:
+
+   - Ensure all components are correctly connected in your design.
+   - Verify that all necessary libraries and components are included in the Proteus project.
+
+5. **Run the Simulation**:
+
+   - Click the play button or go to `Simulation -> Run` to start the simulation.
+   - Monitor the Arduino board and other components to ensure the code runs as expected.
+
+6. **Analyze Results**:
+   - Observe the behavior of your Arduino project within the simulation environment.
+   - Make any necessary adjustments to the code or the Proteus design and re-run the simulation if required.
+
+For detailed instructions and troubleshooting, refer to the Proteus documentation or support resources.
+
+### Installing Node.js on Windows/Linux
+
+Node.js is an open-source server environment with which we developed the backend and the logic for automated irrigation. The backend is the heart of the application, we use Node.js to develop the backend API.
+
+#### On Windows:
+
+1. **Download Node.js Installer**:
+
+   - Go to the [Node.js download page](https://nodejs.org/).
+   - Download the Windows installer (e.g., `.msi` file).
+
+2. **Install Node.js**:
+
+   - Run the installer and follow the setup steps, ensuring you install the recommended version and include npm (Node Package Manager).
+
+3. **Verify Installation**:
+   - Open Command Prompt and run:
+   ```sh
+   node -v
+   npm -v
+   ```
+
+#### On Linux:
+
+1. **Update Package List**:
+
+   - Open a terminal and run:
+
+   ```sh
+   sudo apt update
+   ```
+
+2. **Install Node.js and npm**:
+
+   - For Ubuntu/Debian-based systems:
+
+   ```sh
+   sudo apt install nodejs
+   sudo apt install npm
+   ```
+
+   - For other Linux distributions, follow the specific installation instructions on the [Node.js download page](https://nodejs.org/).
+
+3. **Verify Installation**:
+   - Run the following commands in the terminal:
+   ```sh
+   node -v
+   npm -v
+   ```
+
+By following these steps, you will have Node.js and npm installed on your Windows or Linux system, enabling you to develop and run your backend for automated irrigation.
+
+### Installing API, Web App and Mobile App
+
+#### Backend API
+
+To install all dependencies for the backend API, run the following commands:
 
 ```bash
-   wget https://nodejs.org/dist/v11.9.0/node-v11.9.0-linux-armv6l.tar.gz
-   tar -xvf node-v11.9.0-linux-armv6l.tar.gz
-   cd node-v11.9.0-linux-armv6l
-   sudo cp -R * /usr/local/
+cd back-end-api
+npm install
+
 ```
 
-That the installation has worked can be checked with the two commands for version query of Node.js and NPM:
+To run the API server
 
 ```bash
-   node --version
-   npm --version
+npm run dev
+
 ```
 
-In order to install all dependencies in the frontend and backend, you need to run the following:
+#### Frontend
+
+To install all dependencies for the frontend, run the following commands:
 
 ```bash
-   cd web-app
-   npm install
-   cd back-end-api
-   npm install
+cd web-app
+npm install
 ```
 
-In order to install all dependencies for the mobile plateform (react-native) , you need to run the following:
+To run the web app.
 
 ```bash
-   cd mobile-app
-   npm install
+npm run dev
+
+```
+
+#### Mobile Platform (React Native)
+
+To install all dependencies for the mobile platform, run the following command:
+
+```bash
+cd mobile-app
+npm install
+```
+
+To run the mobile app.
+
+```bash
+npm start
+
 ```
 
 ### Author
