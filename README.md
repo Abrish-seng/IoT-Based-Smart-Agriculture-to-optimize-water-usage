@@ -95,7 +95,7 @@ To run Arduino code and load it into Proteus for simulation, follow these steps:
 
 2. **Open the Arduino code**:
 
-   - Open your Arduino sketch (Smart_Agriculture_System_Code.ino file) in the Arduino IDE.
+   - Open the Arduino sketch (Smart_Agriculture_System_Code.ino file) in the Arduino IDE.
 
 3. **Compile the Code**:
 
@@ -114,7 +114,7 @@ To run Arduino code and load it into Proteus for simulation, follow these steps:
 
 2. **Open a Project**:
 
-   - Open your Proteus project file (Smart_Irrigation_System_Proteus_Simulation.pdsprj) by navigating to `File -> Open` and selecting your design file..
+   - Open the Proteus project file (Smart_Irrigation_System_Proteus_Simulation.pdsprj) by navigating to `File -> Open` and selecting the design file.
 
 3. **Load the .hex File**:
 
@@ -124,7 +124,7 @@ To run Arduino code and load it into Proteus for simulation, follow these steps:
 
 4. **Configure the Simulation**:
 
-   - Ensure all components are correctly connected in your design.
+   - Ensure all components are correctly connected in the design.
    - Verify that all necessary libraries and components are included in the Proteus project.
 
 5. **Run the Simulation**:
@@ -133,7 +133,7 @@ To run Arduino code and load it into Proteus for simulation, follow these steps:
    - Monitor the Arduino board and other components to ensure the code runs as expected.
 
 6. **Analyze Results**:
-   - Observe the behavior of your Arduino project within the simulation environment.
+   - Observe the behavior of the Arduino project within the simulation environment.
    - Make any necessary adjustments to the code or the Proteus design and re-run the simulation if required.
 
 For detailed instructions and troubleshooting, refer to the Proteus documentation or support resources.
