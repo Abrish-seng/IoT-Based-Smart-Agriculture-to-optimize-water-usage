@@ -60,17 +60,17 @@ Download the project from this repository with the following command and go in t
    cd IoT-Based-Smart-Agriculture-to-optimize-water-usage
 ```
 
-## Setup the Raspberry Pi with Docker (recommended)
+## Setup the Arduino on the top of protous  (recommended)
 
-To avoid having to install the required programs manually, you can also run the application with Docker in containers. To do this, carry out the following steps:
+Proteus is not available for Linux natively.Although you may be successful in running it through WINE, there is no guarantee that all the features will work, especially since it is a software that requires a lot of libraries to simulate various microcontrollers etc.
 
-```bash
-  curl -sSL https://get.docker.com | sh
-  sudo usermod -aG docker pi
-  sudo apt-get install -y libffi-dev libssl-dev
-  sudo apt-get install -y python3 python3-pip
-  sudo apt-get remove python-configparser
-  sudo pip3 install docker-compose
+The best option to run Windows software which do not have Linux ports is to install a Windows OS, either on a separate partition or as a virtual machine.
+
+```The best way is to use virtual machine :
+
+Install a virtual machine like VirtualBox or VMWare on your Ubuntu OS
+Install a windows OS inside it
+Install Proteus on your virtual windows and use it
 ```
 
 ### Installing Node
